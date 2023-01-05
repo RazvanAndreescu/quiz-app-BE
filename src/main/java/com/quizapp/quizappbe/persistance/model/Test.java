@@ -26,7 +26,7 @@ public class Test {
     Set<User> users;
 
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "tests_admins",
+    @JoinTable(name = "admins_tests",
             joinColumns = @JoinColumn(name = "test_id"),
             inverseJoinColumns = @JoinColumn(name = "admin_id"))
     Set<Admin> admins;

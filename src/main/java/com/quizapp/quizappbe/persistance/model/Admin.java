@@ -23,7 +23,7 @@ public class Admin {
     private String email;
 
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "tests_admins",
+    @JoinTable(name = "admins_tests",
             joinColumns = @JoinColumn(name = "admin_id"),
             inverseJoinColumns = @JoinColumn(name = "test_id"))
     Set<Test> tests;

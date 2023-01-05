@@ -13,6 +13,9 @@ public class Question {
     @Column(name = "question_id")
     private Integer id;
 
+    @Column(name = "statement")
+    private String statement;
+
     @Column(name = "choice1")
     private String choice1;
 
@@ -40,6 +43,15 @@ public class Question {
 
     public Question setId(Integer id) {
         this.id = id;
+        return this;
+    }
+
+    public String getStatement() {
+        return statement;
+    }
+
+    public Question setStatement(String statement) {
+        this.statement = statement;
         return this;
     }
 

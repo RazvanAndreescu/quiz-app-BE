@@ -16,8 +16,8 @@ public class Test {
     @Column(name = "subject")
     private String subject;
 
-    @Column(name = "correct_choice")
-    private String correctChoice;
+    @Column(name = "grade")
+    private Float grade;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "users_tests",
@@ -55,12 +55,12 @@ public class Test {
         return this;
     }
 
-    public String getCorrectChoice() {
-        return correctChoice;
+    public Float getGrade() {
+        return grade;
     }
 
-    public Test setCorrectChoice(String correctChoice) {
-        this.correctChoice = correctChoice;
+    public Test setGrade(Float grade) {
+        this.grade = grade;
         return this;
     }
 

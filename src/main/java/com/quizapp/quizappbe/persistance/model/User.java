@@ -22,14 +22,15 @@ public class User {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "medium_raiting")
-    private Float mediumRating;
-
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "users_tests",
             joinColumns = @JoinColumn(name = "user_id"),
         inverseJoinColumns = @JoinColumn(name = "test_id"))
     Set<Test> tests;
+
+    @OneToMany(mappedBy = "user")
+    Set<Exam> exams;
+
 
     public Integer getId() {
         return id;
@@ -67,14 +68,6 @@ public class User {
         return this;
     }
 
-    public Float getMediumRating() {
-        return mediumRating;
-    }
-
-    public User setMediumRating(Float mediumRating) {
-        this.mediumRating = mediumRating;
-        return this;
-    }
 
     public Set<Test> getTests() {
         return tests;

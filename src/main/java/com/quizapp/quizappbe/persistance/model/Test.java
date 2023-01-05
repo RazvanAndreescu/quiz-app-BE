@@ -16,9 +16,6 @@ public class Test {
     @Column(name = "subject")
     private String subject;
 
-    @Column(name = "grade")
-    private Float grade;
-
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "users_tests",
             joinColumns = @JoinColumn(name = "test_id"),
@@ -26,16 +23,18 @@ public class Test {
     Set<User> users;
 
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "admins_tests",
-            joinColumns = @JoinColumn(name = "test_id"),
-            inverseJoinColumns = @JoinColumn(name = "admin_id"))
-    Set<Admin> admins;
-
-    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "tests_questions",
             joinColumns = @JoinColumn(name = "test_id"),
             inverseJoinColumns = @JoinColumn(name = "question_id"))
     Set<Question> questions;
+
+    @OneToMany(mappedBy = "test")
+    Set<Exam> exams;
+
+    @ManyToOne
+    @JoinColumn(name = "admin_id")
+    private Admin admin;
+
 
     public Integer getId() {
         return id;
@@ -55,15 +54,6 @@ public class Test {
         return this;
     }
 
-    public Float getGrade() {
-        return grade;
-    }
-
-    public Test setGrade(Float grade) {
-        this.grade = grade;
-        return this;
-    }
-
     public Set<User> getUsers() {
         return users;
     }
@@ -73,21 +63,30 @@ public class Test {
         return this;
     }
 
-    public Set<Admin> getAdmins() {
-        return admins;
-    }
-
-    public Test setAdmins(Set<Admin> admins) {
-        this.admins = admins;
-        return this;
-    }
-
     public Set<Question> getQuestions() {
         return questions;
     }
 
     public Test setQuestions(Set<Question> questions) {
         this.questions = questions;
+        return this;
+    }
+
+    public Set<Exam> getExams() {
+        return exams;
+    }
+
+    public Test setExams(Set<Exam> exams) {
+        this.exams = exams;
+        return this;
+    }
+
+    public Admin getAdmin() {
+        return admin;
+    }
+
+    public Test setAdmin(Admin admin) {
+        this.admin = admin;
         return this;
     }
 }

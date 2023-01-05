@@ -13,8 +13,8 @@ public class Question {
     @Column(name = "question_id")
     private Integer id;
 
-    @Column(name = "statement")
-    private String statement;
+    @Column(name = "question")
+    private String question;
 
     @Column(name = "choice_1")
     private String choice1;
@@ -46,12 +46,12 @@ public class Question {
         return this;
     }
 
-    public String getStatement() {
-        return statement;
+    public String getQuestion() {
+        return question;
     }
 
-    public Question setStatement(String statement) {
-        this.statement = statement;
+    public Question setQuestion(String question) {
+        this.question = question;
         return this;
     }
 

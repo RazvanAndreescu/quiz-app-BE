@@ -22,11 +22,8 @@ public class Admin {
     @Column(name = "email")
     private String email;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "admins_tests",
-            joinColumns = @JoinColumn(name = "admin_id"),
-            inverseJoinColumns = @JoinColumn(name = "test_id"))
-    Set<Test> tests;
+    @OneToMany(mappedBy = "admin")
+    Set<Test> testsCreatedList;
 
     public Integer getId() {
         return id;
@@ -64,12 +61,12 @@ public class Admin {
         return this;
     }
 
-    public Set<Test> getTests() {
-        return tests;
+    public Set<Test> getTestsCreatedList() {
+        return testsCreatedList;
     }
 
-    public Admin setTests(Set<Test> tests) {
-        this.tests = tests;
+    public Admin setTestsCreatedList(Set<Test> testsCreatedList) {
+        this.testsCreatedList = testsCreatedList;
         return this;
     }
 }

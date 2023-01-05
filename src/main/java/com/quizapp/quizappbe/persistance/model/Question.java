@@ -16,16 +16,16 @@ public class Question {
     @Column(name = "statement")
     private String statement;
 
-    @Column(name = "choice1")
+    @Column(name = "choice_1")
     private String choice1;
 
-    @Column(name = "choice2")
+    @Column(name = "choice_2")
     private String choice2;
 
-    @Column(name = "choice3")
+    @Column(name = "choice_3")
     private String choice3;
 
-    @Column(name = "choice4")
+    @Column(name = "choice_4")
     private String choice4;
 
     @Column(name = "correct_choice")

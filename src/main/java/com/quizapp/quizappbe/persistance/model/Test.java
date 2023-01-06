@@ -10,17 +10,17 @@ public class Test {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "test_id")
+    @Column(name = "id")
     private Integer id;
 
     @Column(name = "subject")
     private String subject;
 
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "users_tests",
+    @JoinTable(name = "students_tests",
             joinColumns = @JoinColumn(name = "test_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id"))
-    Set<User> users;
+            inverseJoinColumns = @JoinColumn(name = "student_id"))
+    Set<Student> users;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "tests_questions",
@@ -32,8 +32,8 @@ public class Test {
     Set<Exam> exams;
 
     @ManyToOne
-    @JoinColumn(name = "admin_id")
-    private Admin admin;
+    @JoinColumn(name = "professor_id")
+    private Professor professor;
 
 
     public Integer getId() {
@@ -54,11 +54,11 @@ public class Test {
         return this;
     }
 
-    public Set<User> getUsers() {
+    public Set<Student> getUsers() {
         return users;
     }
 
-    public Test setUsers(Set<User> users) {
+    public Test setUsers(Set<Student> users) {
         this.users = users;
         return this;
     }
@@ -81,12 +81,12 @@ public class Test {
         return this;
     }
 
-    public Admin getAdmin() {
-        return admin;
+    public Professor getProfessor() {
+        return professor;
     }
 
-    public Test setAdmin(Admin admin) {
-        this.admin = admin;
+    public Test setProfessor(Professor professor) {
+        this.professor = professor;
         return this;
     }
 }

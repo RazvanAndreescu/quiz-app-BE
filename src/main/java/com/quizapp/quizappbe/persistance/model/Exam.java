@@ -10,7 +10,7 @@ public class Exam {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "exam_id")
+    @Column(name = "id")
     private Integer id;
 
     @Column(name = "date")
@@ -20,8 +20,8 @@ public class Exam {
     private Float grade;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "student_id")
+    private Student student;
 
     @ManyToOne
     @JoinColumn(name = "test_id")
@@ -54,12 +54,12 @@ public class Exam {
         return this;
     }
 
-    public User getUser() {
-        return user;
+    public Student getStudent() {
+        return student;
     }
 
-    public Exam setUser(User user) {
-        this.user = user;
+    public Exam setStudent(Student student) {
+        this.student = student;
         return this;
     }
 

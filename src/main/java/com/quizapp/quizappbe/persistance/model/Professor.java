@@ -5,12 +5,12 @@ import jakarta.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "admins")
-public class Admin {
+@Table(name = "professors")
+public class Professor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "admin_id")
+    @Column(name = "id")
     private Integer id;
 
     @Column(name = "username")
@@ -22,14 +22,14 @@ public class Admin {
     @Column(name = "email")
     private String email;
 
-    @OneToMany(mappedBy = "admin")
+    @OneToMany(mappedBy = "professor")
     Set<Test> testsCreatedList;
 
     public Integer getId() {
         return id;
     }
 
-    public Admin setId(Integer id) {
+    public Professor setId(Integer id) {
         this.id = id;
         return this;
     }
@@ -38,7 +38,7 @@ public class Admin {
         return username;
     }
 
-    public Admin setUsername(String username) {
+    public Professor setUsername(String username) {
         this.username = username;
         return this;
     }
@@ -47,7 +47,7 @@ public class Admin {
         return password;
     }
 
-    public Admin setPassword(String password) {
+    public Professor setPassword(String password) {
         this.password = password;
         return this;
     }
@@ -56,7 +56,7 @@ public class Admin {
         return email;
     }
 
-    public Admin setEmail(String email) {
+    public Professor setEmail(String email) {
         this.email = email;
         return this;
     }
@@ -65,7 +65,7 @@ public class Admin {
         return testsCreatedList;
     }
 
-    public Admin setTestsCreatedList(Set<Test> testsCreatedList) {
+    public Professor setTestsCreatedList(Set<Test> testsCreatedList) {
         this.testsCreatedList = testsCreatedList;
         return this;
     }

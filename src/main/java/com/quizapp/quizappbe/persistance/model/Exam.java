@@ -1,6 +1,6 @@
 package com.quizapp.quizappbe.persistance.model;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 import java.sql.Date;
 
